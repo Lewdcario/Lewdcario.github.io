@@ -3,7 +3,10 @@ name: Deploy on push
 on:
   push:
     paths:
+      - index.html
       - src/**
+      - public/*
+      - cypress/**
       - .github/workflows/*
     branches: [dev]
 
