@@ -1,15 +1,24 @@
-<script>
+<script lang="ts">
+import { RecycleScroller } from 'vue-virtual-scroller';
 import ProjectItem from './ProjectItem.vue';
-import data from '@/data/projects.json';
+import items from '../data/projects.json';
 
 export default {
 	components: {
-		ProjectItem
+		ProjectItem,
+		RecycleScroller
 	},
-	data() {
-		return {
-			items: data
-		};
+	props: {
+		items: {
+			type: Array,
+			required: false,
+			default: () => items
+		}
+	},
+	computed: {
+		itemsWithIndex() {
+			return this.items.map((item, index) => ({ ...item, index }));
+		}
 	}
 };
 </script>
@@ -18,21 +27,23 @@ export default {
   <div>
     <ul>
       <RecycleScroller
-        v-slot="{ item }"
         class="scroller"
         :items="items"
         :item-size="300"
         key-field="title"
       >
-        <div class="item">
-          <ProjectItem 
-            :title="item.title"
-            :description="item.description"
-            :image="item.image"
-            :link="item.link"
-            :timeframe="item.timeframe"
-          />
-        </div>
+        <template #default="{ item }">
+          <div class="item">
+            <ProjectItem 
+              :title="item.title"
+              :description="item.description"
+              :image="item.image"
+              :link="item.link"
+              :timeframe="item.timeframe"
+              :alt="item.alt"
+            />
+          </div>
+        </template>
       </RecycleScroller>
     </ul>
   </div>

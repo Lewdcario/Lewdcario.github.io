@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -22,6 +22,10 @@ export default defineComponent({
 		timeframe: {
 			type: String,
 			required: true
+		},
+		alt: {
+			type: String,
+			required: true
 		}
 	}
 })
@@ -32,7 +36,6 @@ export default defineComponent({
     :img-src="image"
     :img-alt="title"
     img-top
-    :tag="alt"
     style="max-width: 20rem;"
     class="mb-2 bg-transparent mx-auto"
   >
