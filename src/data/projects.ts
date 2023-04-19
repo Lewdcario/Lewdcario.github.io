@@ -11,7 +11,7 @@ export default [
 		'alt': 'smashcords',
 		'title': 'Smashcords',
 		'timeframe': '2018 - Ongoing',
-		'description': 'The Ultimate Smash Hub for all smash-related Discord servers.',
+		'description': 'Developer and owner for a website containing the central hub for all smash-related Discord servers.',
 		'image': 'https://i.imgur.com/WKUM61X.png',
 		'link': 'https:/smashcords.com'
 	},

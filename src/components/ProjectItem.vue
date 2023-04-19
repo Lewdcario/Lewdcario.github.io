@@ -33,32 +33,32 @@ export default defineComponent({
 
 <template>
 	<b-card
-		:img-src='image'
-		:img-alt='title'
 		img-top
 		style='max-width: 20rem;'
-		class='mb-2 bg-transparent mx-auto'
+		class='mb-2 bg-transparent mx-auto border-0'
 	>
+		<a
+			ref='noreferrer'
+			:href='link'
+			target='_blank'
+		>
+			<b-card-img
+				:alt='title'
+				:src='image'
+			/>
+		</a>
 		<b-card-title>
-			<h3 class='animated-link'>
-				<a
-					ref='noreferrer'
-					:href='link'
-					target='_blank'
-				>
-					{{ title }}
-				</a>
-			</h3>
+			<h3 class='animated-link' />
 		</b-card-title>
 		<b-card-text>
-			<h5>
-				{{ description }}
-			</h5>
 			<p>
 				<small>
 					{{ timeframe }}
 				</small>
 			</p>
+			<h5>
+				{{ description }}
+			</h5>
 		</b-card-text>
 	</b-card>
 </template>
