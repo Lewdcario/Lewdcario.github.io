@@ -7,6 +7,9 @@ on:
       - .github/workflows/*
     branches: [master]
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     name: Deploy
