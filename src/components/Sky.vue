@@ -11,16 +11,16 @@
 <script lang='ts'>
 export default {
 	mounted() {
-		const canvas = this.$refs.canvas;
+		const canvas = this.$refs.canvas as any;
 		const context = canvas.getContext('2d');
 		let width = canvas.width = window.innerWidth;
 		let height = canvas.height = window.innerHeight;
-		const stars = [];
-		const comets = [];
+		const stars: any[] = [];
+		const comets: any[] = [];
 		const maxStars = 200;
 		const maxComets = 3;
 
-		function random(min, max) {
+		function random(min: number, max: number) {
 			return Math.floor(Math.random() * (max - min + 1)) + min;
 		}
 

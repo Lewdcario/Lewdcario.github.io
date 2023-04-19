@@ -1,8 +1,7 @@
 <template>
 	<div>
 		<ul>
-			<RecycleScroller class="scroller" :items="items" :item-size="300" key-field="title"
-				@item-visible="onItemVisible">
+			<RecycleScroller class="scroller" :items="items" :item-size="300" key-field="title">
 				<template #default="{ item }">
 					<div :class="`item ${item.visible ? 'focus' : ''}`">
 						<ProjectItem :title="item.title" :description="item.description" :image="item.image"
@@ -36,11 +35,11 @@ export default {
 		itemsWithIndex() {
 			return this.items.map((item, index) => ({ ...item, index, visible: false }));
 		},
-	}
+	},
 };
 
-const list = document.querySelectorAll('.item');
 const center = window.innerHeight / 2;
+const list = Array.from(document.querySelectorAll('.item')) as HTMLElement[];
 
 function updateZoom() {
 	list.forEach(item => {
@@ -48,13 +47,17 @@ function updateZoom() {
 		const isCenter = rect.top < center && rect.bottom > center;
 		if (isCenter) {
 			item.classList.add('zoom');
-		} else {
+			item.style.boxShadow = '0px 0px 20px 5px rgba(255, 255, 255, 0.5)';
+		}
+		else {
 			item.classList.remove('zoom');
+			item.style.boxShadow = '';
 		}
 	});
 }
 
 window.addEventListener('scroll', updateZoom);
+
 </script>
 
 <style scoped>
