@@ -13,7 +13,7 @@ export default [
 		timeframe: '2018 - Ongoing',
 		description: 'Developer and owner for a website containing the central hub for all smash-related Discord servers.',
 		image: 'https://i.imgur.com/WKUM61X.png',
-		link: 'https:/smashcords.com'
+		link: 'https://smashcords.com'
 	},
 	{
 		alt: 'discord.js',
