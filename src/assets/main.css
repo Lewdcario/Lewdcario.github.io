@@ -1,0 +1,55 @@
+@import './base.css';
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* Source: https://codepen.io/becckitt/pen/eZrqaw */
+
+h3 a, h5.animated-link a {
+  text-decoration: none;
+  background-repeat: no-repeat;
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+}
+
+h3 a {
+  background-image: linear-gradient(270deg, orange, fuchsia);
+  background-size: 100%;
+  background-position: 0 50px;
+}
+
+h3 a:hover {
+  background-position: 0 30px;
+}
+
+h5.animated-link a {
+  line-height: 40px;
+  background-image: linear-gradient(180deg, blue, red 65%, transparent 0);
+  background-size: 0 100%;
+}
+
+h5.animated-link.half-highlight a {
+  background-image: linear-gradient(180deg, transparent 65%, #fcf113 0);
+}
+
+h5.animated-link.top-highlight a {
+  background-image: linear-gradient(360deg, transparent 65%, #fcf113 0);
+}
+
+h5.animated-link.crazy-highlight a {
+  background-image: linear-gradient(15deg, yellow, green, blue, red);
+  transition: all 1s ease;
+}
+
+h5.animated-link a:hover {
+  background-size: 100% 100%;
+}
+
+/* End of Source */
