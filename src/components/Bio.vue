@@ -1,5 +1,6 @@
-<script setup lang="ts">
+<script setup lang='ts'>
 import SocialIcon from '../components/SocialIcon.vue';
+import JumpscareWarning from '../components/JumpscareWarning.vue';
 </script>
 
 <template>
@@ -10,9 +11,16 @@ import SocialIcon from '../components/SocialIcon.vue';
 			alt='Avatar'
 			size='10rem'
 		/>
-		<h1 class='mt-3'>
-			Okami.
-		</h1>
+		<JumpscareWarning>
+			<template #trigger>
+				<h1 class='mt-3'>
+					Okami.
+				</h1>
+			</template>
+			<template #revealed>
+				<p>She/Her</p>
+			</template>
+		</JumpscareWarning>
 		<p>Hi, I'm known by my online alias Okami. I am a full-stack software engineer.</p>
 		<p>
 			<SocialIcon
