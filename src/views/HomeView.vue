@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { useHeadSafe } from 'unhead';
 import Bio from '../components/Bio.vue';
 import ProjectItemList from '../components/ProjectItemList.vue';
-import { useHeadSafe } from 'unhead';
 </script>
 
 <template>
