@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
 
 const router = createRouter({
 	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -12,6 +12,6 @@ const router = createRouter({
 			component: HomeView
 		}
 	]
-})
+});
 
-export default router
+export default router;

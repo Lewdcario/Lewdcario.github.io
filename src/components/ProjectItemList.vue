@@ -11,7 +11,7 @@ export default {
 	},
 	props: {
 		items: {
-      type: Array as () => ProjectItemType[],
+			type: Array as () => ProjectItemType[],
 			required: false,
 			default: () => items
 		}
@@ -25,27 +25,27 @@ export default {
 </script>
 
 <template>
-  <div>
-    <ul>
-      <RecycleScroller
-        class="scroller"
-        :items="items"
-        :item-size="300"
-        key-field="title"
-      >
-        <template #default="{ item }">
-          <div class="item">
-            <ProjectItem 
-              :title="item.title"
-              :description="item.description"
-              :image="item.image"
-              :link="item.link"
-              :timeframe="item.timeframe"
-              :alt="item.alt"
-            />
-          </div>
-        </template>
-      </RecycleScroller>
-    </ul>
-  </div>
+	<div>
+		<ul>
+			<RecycleScroller
+				class="scroller"
+				:items="items"
+				:item-size="300"
+				key-field="title"
+			>
+				<template #default="{ item }">
+					<div class="item">
+						<ProjectItem 
+							:title="item.title"
+							:description="item.description"
+							:image="item.image"
+							:link="item.link"
+							:timeframe="item.timeframe"
+							:alt="item.alt"
+						/>
+					</div>
+				</template>
+			</RecycleScroller>
+		</ul>
+	</div>
 </template>
