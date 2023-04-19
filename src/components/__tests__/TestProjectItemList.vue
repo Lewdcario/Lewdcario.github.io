@@ -1,22 +1,22 @@
 <template>
-		<div>
-				<ul>
-						<li
-								v-for="item in items"
-								:key="item.title"
-								class="item"
-						>
-								<ProjectItem
-										:title="item.title"
-										:description="item.description"
-										:image="item.image"
-										:link="item.link"
-										:timeframe="item.timeframe"
-										:alt="item.alt"
-								/>
-						</li>
-				</ul>
-		</div>
+	<div>
+		<ul>
+			<li
+				v-for="item in items"
+				:key="item.title"
+				class="item"
+			>
+				<ProjectItem
+					:title="item.title || ''"
+					:description="item.description || ''"
+					:image="item.image || ''"
+					:link="item.link || ''"
+					:timeframe="item.timeframe ||''"
+					:alt="item.alt ||''"
+				/>
+			</li>
+		</ul>
+	</div>
 </template>
 
 <script lang="ts">
@@ -31,7 +31,7 @@ export default defineComponent({
 	},
 	props: {
 		items: {
-						type: Array as () => ProjectItemType[],
+			type: Array as () => ProjectItemType[],
 			required: false,
 			default: () => items
 		}
