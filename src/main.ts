@@ -18,5 +18,3 @@ app.use(VueVirtualScroller);
 app.use(router);
 
 app.mount('#app');
-
-// Kick deployment

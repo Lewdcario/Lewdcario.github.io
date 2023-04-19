@@ -33,7 +33,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            REPOSITORY_NAME: Lewdcario/Lewdcario.github.io
-            BRANCH: master
-            FOLDER: dist
+            branch: master
+            folder: dist
