@@ -2,6 +2,16 @@
 import { useHeadSafe } from 'unhead';
 import Bio from '../components/Bio.vue';
 import ProjectItemList from '../components/ProjectItemList.vue';
+
+useHeadSafe({
+	htmlAttrs: {
+		lang: 'en'
+	},
+	meta: [
+		{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
+	],
+	title: 'Okami\'s Portfolio'
+});
 </script>
 
 <template>
@@ -25,15 +35,3 @@ import ProjectItemList from '../components/ProjectItemList.vue';
 		</b-row>
 	</div>
 </template>
-
-<script lang='ts'>
-useHeadSafe({
-	htmlAttrs: {
-		lang: 'en'
-	},
-	meta: [
-		{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
-	],
-	title: 'Okami\'s Portfolio'
-});
-</script>

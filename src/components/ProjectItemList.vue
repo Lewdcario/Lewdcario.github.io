@@ -1,18 +1,3 @@
-<template>
-	<div>
-		<ul>
-			<RecycleScroller class="scroller" :items="items" :item-size="300" key-field="title">
-				<template #default="{ item }">
-					<div :class="`item ${item.visible ? 'focus' : ''}`">
-						<ProjectItem :title="item.title" :description="item.description" :image="item.image"
-							:link="item.link" :timeframe="item.timeframe" :alt="item.alt" />
-					</div>
-				</template>
-			</RecycleScroller>
-		</ul>
-	</div>
-</template>
-
 <script lang="ts">
 import { RecycleScroller } from "vue-virtual-scroller";
 import ProjectItem from "./ProjectItem.vue";
@@ -59,6 +44,21 @@ function updateZoom() {
 window.addEventListener('scroll', updateZoom);
 
 </script>
+
+<template>
+	<div>
+		<ul>
+			<RecycleScroller class="scroller" :items="items" :item-size="330" key-field="title">
+				<template #default="{ item }">
+					<div :class="`item ${item.visible ? 'focus' : ''}`">
+						<ProjectItem :title="item.title" :description="item.description" :image="item.image"
+							:link="item.link" :timeframe="item.timeframe" :alt="item.alt" />
+					</div>
+				</template>
+			</RecycleScroller>
+		</ul>
+	</div>
+</template>
 
 <style scoped>
 .item {

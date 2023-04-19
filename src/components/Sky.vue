@@ -1,9 +1,6 @@
 <template>
 	<div>
-		<canvas
-			ref='canvas'
-			style='position: fixed; top: 0; left: 0; z-index: -1;'
-		/>
+		<canvas ref='canvas' />
 		<slot />
 	</div>
 </template>
@@ -16,9 +13,7 @@ export default {
 		let width = canvas.width = window.innerWidth;
 		let height = canvas.height = window.innerHeight;
 		const stars: any[] = [];
-		const comets: any[] = [];
-		const maxStars = 200;
-		const maxComets = 3;
+		const maxStars = 100;
 
 		function random(min: number, max: number) {
 			return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -33,20 +28,6 @@ export default {
 				vy: random(1, 10) / 10,
 				glow: `rgba(${random(0, 255)},${random(0, 255)},${random(0, 255)},${Math.random()})`
 			});
-		}
-
-		for (let i = 0; i < maxComets; i++) {
-			comets.push({
-				x: Math.random() * width,
-				y: Math.random() * height,
-				radius: Math.random() * 2 + 1,
-				vx: random(-1, 1),
-				vy: random(5, 15) / 10,
-				gradient: context.createLinearGradient(0, 0, 30, 0),
-				angle: random(-Math.PI / 4, Math.PI / 4)
-			});
-			comets[i].gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
-			comets[i].gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
 		}
 
 		function drawStars() {
@@ -66,19 +47,6 @@ export default {
 			context.restore();
 		}
 
-		function drawComets() {
-			for (let i = 0; i < maxComets; i++) {
-				const comet = comets[i];
-				const angle = Math.atan2(comet.vy, comet.vx) * -1;
-				context.save();
-				context.translate(comet.x, comet.y);
-				context.rotate(angle);
-				context.fillStyle = comet.gradient;
-				context.fillRect(0, 0, 30, 3);
-				context.restore();
-			}
-		}
-
 		function updateStars() {
 			for (let i = 0; i < maxStars; i++) {
 				const star = stars[i];
@@ -91,23 +59,9 @@ export default {
 			}
 		}
 
-		function updateComets() {
-			for (let i = 0; i < maxComets; i++) {
-				const comet = comets[i];
-				comet.x += comet.vx;
-				comet.y += comet.vy;
-				if (comet.y > height) {
-					comet.y = 0;
-					comet.x = Math.random() * width;
-				}
-			}
-		}
-
 		function loop() {
 			drawStars();
-			drawComets();
 			updateStars();
-			updateComets();
 			requestAnimationFrame(loop);
 		}
 
@@ -120,4 +74,13 @@ export default {
 	}
 };
 </script>
+
+<style scoped>
+canvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+</style>
 
