@@ -5,7 +5,7 @@
 	"parser": "vue-eslint-parser",
 	"extends": [
 		"eslint:recommended",
-		"plugin:vue/vue3-recommended",
+		"plugin:vue/vue3-strongly-recommended",
 		"plugin:@typescript-eslint/recommended"
 	],
 	"rules": {
@@ -31,6 +31,10 @@
 		"no-promise-executor-return": "off",
 		"no-cycle": "off",
 		"no-bitwise": "off",
-		"semi": ["error", "always"]
+		"semi": ["error", "always"],
+		"comma-spacing": ["error", { "before": false, "after": true }],
+		"quotes": ["error", "single"],
+		"jsx-quotes": ["error", "prefer-single"],
+		"vue/html-quotes": ["error", "single"]
 	}
 }
