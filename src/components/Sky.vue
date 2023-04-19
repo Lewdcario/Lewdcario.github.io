@@ -32,9 +32,7 @@ function drawCanvas() {
 export default defineComponent({
 	mounted() {
 		window.addEventListener('load', () => {
-			setInterval(() => {
-				drawCanvas();
-			}, Math.random() * 1000);
+			drawCanvas();
 		});
 		window.addEventListener('resize', drawCanvas);
 		window.addEventListener('scroll', drawCanvas);
@@ -59,6 +57,6 @@ export default defineComponent({
 </style>
 
 <template>
-	<canvas class='sky' />
+	<canvas class='sky' height="0" />
 	<slot />
 </template>
