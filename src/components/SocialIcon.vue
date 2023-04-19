@@ -1,10 +1,10 @@
 <script lang='ts'>
 import { defineComponent, computed } from 'vue';
-import twitchLogo from '../assets/twitch.svg' assert { type: 'image/svg+xml' };
-import youtubeLogo from '../assets/youtube.svg' assert { type: 'image/svg+xml' };
-import twitterLogo from '../assets/twitter.svg' assert { type: 'image/svg+xml' };
-import githubLogo from '../assets/github.svg' assert { type: 'image/svg+xml' };
-import linkedinLogo from '../assets/linkedin.svg' assert { type: 'image/svg+xml' };
+import twitchLogo from '../assets/twitch.svg';
+import youtubeLogo from '../assets/youtube.svg';
+import twitterLogo from '../assets/twitter.svg';
+import githubLogo from '../assets/github.svg';
+import linkedinLogo from '../assets/linkedin.svg';
 
 export default defineComponent({
 	props: {
