@@ -1,62 +1,123 @@
-<script lang='ts'>
-import { defineComponent } from 'vue';
+<template>
+	<div>
+		<canvas
+			ref='canvas'
+			style='position: fixed; top: 0; left: 0; z-index: -1;'
+		/>
+		<slot />
+	</div>
+</template>
 
-function drawCanvas() {
-	const c = document.getElementsByClassName('sky')[0] as any;
-	const ctx = c.getContext('2d');
-	const xMax = window.innerWidth;
-	const yMax = window.innerHeight;
-	c.width = xMax;
-	c.height = yMax;
-	const hmTimes = Math.round(xMax + yMax);
-
-	for (let i = 0; i <= hmTimes; i++) {
-		const randomX = Math.floor((Math.random() * xMax) + 1);
-		const randomY = Math.floor((Math.random() * yMax) + 1);
-		const randomSize = Math.floor((Math.random() * 2) + 1);
-		const randomOpacityOne = Math.floor((Math.random() * 9) + 1);
-		const randomOpacityTwo = Math.floor((Math.random() * 9) + 1);
-		const randomHue = Math.floor((Math.random() * 360) + 1);
-		if (randomSize > 1) {
-			ctx.shadowBlur = Math.floor((Math.random() * 15) + 5);
-			ctx.shadowColor = 'white';
-		}
-		ctx.fillStyle = 'hsla(' + randomHue + ', 30%, 80%, .' + randomOpacityOne + randomOpacityTwo + ')';
-		ctx.fillRect(randomX, randomY, randomSize, randomSize);
-	}
-
-	// Move the canvas along with the scroll
-	c.style.top = `${window.pageYOffset}px`;
-}
-
-export default defineComponent({
+<script>
+export default {
 	mounted() {
-		window.addEventListener('load', () => {
-			drawCanvas();
+		const canvas = this.$refs.canvas;
+		const context = canvas.getContext('2d');
+		let width = canvas.width = window.innerWidth;
+		let height = canvas.height = window.innerHeight;
+		const stars = [];
+		const comets = [];
+		const maxStars = 200;
+		const maxComets = 3;
+
+		function random(min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+		for (let i = 0; i < maxStars; i++) {
+			stars.push({
+				x: Math.random() * width,
+				y: Math.random() * height,
+				radius: Math.random() * 2 + 1,
+				vx: random(-1, 1) / 2,
+				vy: random(1, 10) / 10,
+				glow: `rgba(${random(0, 255)},${random(0, 255)},${random(0, 255)},${Math.random()})`
+			});
+		}
+
+		for (let i = 0; i < maxComets; i++) {
+			comets.push({
+				x: Math.random() * width,
+				y: Math.random() * height,
+				radius: Math.random() * 2 + 1,
+				vx: random(-1, 1),
+				vy: random(5, 15) / 10,
+				gradient: context.createLinearGradient(0, 0, 30, 0),
+				angle: random(-Math.PI / 4, Math.PI / 4)
+			});
+			comets[i].gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+			comets[i].gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+		}
+
+		function drawStars() {
+			context.clearRect(0, 0, width, height);
+			context.fillStyle = 'rgba(0, 0, 0, 0.8)';
+			context.fillRect(0, 0, width, height);
+			context.save();
+			context.fillStyle = '#fff';
+			for (let i = 0; i < maxStars; i++) {
+				const star = stars[i];
+				context.beginPath();
+				context.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+				context.shadowColor = star.glow;
+				context.shadowBlur = 10;
+				context.fill();
+			}
+			context.restore();
+		}
+
+		function drawComets() {
+			for (let i = 0; i < maxComets; i++) {
+				const comet = comets[i];
+				const angle = Math.atan2(comet.vy, comet.vx) * -1;
+				context.save();
+				context.translate(comet.x, comet.y);
+				context.rotate(angle);
+				context.fillStyle = comet.gradient;
+				context.fillRect(0, 0, 30, 3);
+				context.restore();
+			}
+		}
+
+		function updateStars() {
+			for (let i = 0; i < maxStars; i++) {
+				const star = stars[i];
+				star.x += star.vx;
+				star.y += star.vy;
+				if (star.y > height) {
+					star.y = 0;
+					star.x = Math.random() * width;
+				}
+			}
+		}
+
+		function updateComets() {
+			for (let i = 0; i < maxComets; i++) {
+				const comet = comets[i];
+				comet.x += comet.vx;
+				comet.y += comet.vy;
+				if (comet.y > height) {
+					comet.y = 0;
+					comet.x = Math.random() * width;
+				}
+			}
+		}
+
+		function loop() {
+			drawStars();
+			drawComets();
+			updateStars();
+			updateComets();
+			requestAnimationFrame(loop);
+		}
+
+		window.addEventListener('resize', function () {
+			width = canvas.width = window.innerWidth;
+			height = canvas.height = window.innerHeight;
 		});
-		window.addEventListener('resize', drawCanvas);
-		window.addEventListener('scroll', drawCanvas);
-	},
-	beforeUnmount() {
-		window.removeEventListener('resize', drawCanvas);
-		window.removeEventListener('scroll', drawCanvas);
-	},
-});
+
+		loop();
+	}
+};
 </script>
 
-<style scoped>
-.sky {
-	background: -webkit-linear-gradient(#00111e 30%, #033d5e);
-	background: -moz-linear-gradient(#00111e 30%, #033d5e);
-	background: -o-linear-gradient(#00111e 30%, #033d5e);
-	background: linear-gradient(#00111e 30%, #033d5e);
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-}
-</style>
-
-<template>
-	<canvas class='sky' height="0" />
-	<slot />
-</template>
