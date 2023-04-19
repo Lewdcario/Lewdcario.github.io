@@ -1,4 +1,4 @@
-[
+export default [
 	{
 		"alt": "pv",
 		"title": "Progressive Victory",

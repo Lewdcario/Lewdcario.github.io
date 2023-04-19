@@ -22,7 +22,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import ProjectItem from '../ProjectItem.vue';
-import items from '../../data/projects.json';
+import items from '../../data/projects'
+import type { ProjectItemType } from '../../declarations/index';
 
 export default defineComponent({
 	components: {
@@ -30,7 +31,7 @@ export default defineComponent({
 	},
 	props: {
 		items: {
-			type: Array,
+      type: Array as () => ProjectItemType[],
 			required: false,
 			default: () => items
 		}

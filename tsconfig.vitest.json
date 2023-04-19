@@ -6,5 +6,5 @@
     "lib": [],
     "types": ["node", "jsdom"]
   },
-  "include": ["src/data/projects.json", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": ["src/data/projects.ts", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

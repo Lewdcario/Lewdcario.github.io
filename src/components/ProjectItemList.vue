@@ -1,7 +1,8 @@
 <script lang="ts">
 import { RecycleScroller } from 'vue-virtual-scroller';
 import ProjectItem from './ProjectItem.vue';
-import items from '../data/projects.json';
+import items from '../data/projects';
+import type { ProjectItemType } from '../declarations/index';
 
 export default {
 	components: {
@@ -10,7 +11,7 @@ export default {
 	},
 	props: {
 		items: {
-			type: Array,
+      type: Array as () => ProjectItemType[],
 			required: false,
 			default: () => items
 		}
