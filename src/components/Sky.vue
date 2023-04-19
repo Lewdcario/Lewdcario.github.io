@@ -8,7 +8,7 @@
 	</div>
 </template>
 
-<script>
+<script lang='ts'>
 export default {
 	mounted() {
 		const canvas = this.$refs.canvas;
