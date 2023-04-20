@@ -1,5 +1,5 @@
 <script lang='ts'>
-import { defineComponent } from '@vue/compat';
+import { defineComponent } from 'vue';
 import twitchLogo from './icons/TwitchIcon.vue';
 import twitterLogo from './icons/TwitterIcon.vue';
 import facebookLogo from './icons/FacebookIcon.vue';
@@ -38,11 +38,11 @@ export default defineComponent({
 
 <template>
 	<span class='d-inline-block'>
-	    <component :is="logo" class='img-responsive mx-4 text-light'/>
-		<h5 class='animated-link half-highlight'>
-		<a :href='link' target='_blank' rel='noreferrer'>
-			{{ title }}
+		<a :href='link' target='_blank' rel='noreferrer' class="m-5">
+			<component :is="logo" class='img-responsive text-light'/>
 		</a>
-		</h5>
+		<h4 class='animated-link half-highlight mt-2'>
+			{{ title }}
+		</h4>
 	</span>
 </template>

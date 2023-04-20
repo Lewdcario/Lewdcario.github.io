@@ -1,33 +1,33 @@
-<script lang="ts">
-import { RecycleScroller } from "vue-virtual-scroller";
-import ProjectItem from "./ProjectItem.vue";
-import items from "../data/projects";
-import type { ProjectItemType } from "../declarations/index";
+<script lang='ts'>
+import { RecycleScroller } from 'vue-virtual-scroller';
+import ProjectItem from './ProjectItem.vue';
+import items from '../data/projects';
+import type { ProjectItemType } from '../declarations/index';
 
 export default {
 	components: {
 		ProjectItem,
-		RecycleScroller,
+		RecycleScroller
 	},
 	props: {
 		items: {
 			type: Array as () => ProjectItemType[],
 			required: false,
-			default: () => items,
-		},
+			default: () => items
+		}
 	},
 	computed: {
 		itemsWithIndex() {
 			return this.items.map((item, index) => ({ ...item, index, visible: false }));
-		},
-	},
+		}
+	}
 };
 
 const center = window.innerHeight / 2;
 const list = Array.from(document.querySelectorAll('.item')) as HTMLElement[];
 
 function updateZoom() {
-	list.forEach(item => {
+	list.forEach((item: HTMLElement) => {
 		const rect = item.getBoundingClientRect();
 		const isCenter = rect.top < center && rect.bottom > center;
 		if (isCenter) {
@@ -48,11 +48,17 @@ window.addEventListener('scroll', updateZoom);
 <template>
 	<div>
 		<ul>
-			<RecycleScroller class="scroller" :items="items" :item-size="330" key-field="title">
+			<RecycleScroller class='scroller' :items="items" :item-size="300" key-field='title'>
 				<template #default="{ item }">
-					<div :class="`item ${item.visible ? 'focus' : ''}`">
-						<ProjectItem :title="item.title" :description="item.description" :image="item.image"
-							:link="item.link" :timeframe="item.timeframe" :alt="item.alt" />
+					<div :key="item.title" :class="`item ${item.visible ? 'focus' : ''}`">
+						<ProjectItem
+							:title="item.title"
+							:description="item.description"
+							:image="item.image"
+							:link="item.link"
+							:timeframe="item.timeframe"
+							:alt="item.alt"
+						/>
 					</div>
 				</template>
 			</RecycleScroller>

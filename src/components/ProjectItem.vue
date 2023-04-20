@@ -1,5 +1,5 @@
-<script lang="ts">
-import { defineComponent } from '@vue/compat';
+<script lang='ts'>
+import { defineComponent } from 'vue';
 
 export default defineComponent({
 	props: {
@@ -27,28 +27,19 @@ export default defineComponent({
 			type: String,
 			required: true
 		}
-	}
+	} as any
 });
 </script>
 
 <template>
-	<b-card
-		img-top
-		style='max-width: 20rem;'
-		class='mb-2 bg-transparent mx-auto border-0'
-	>
-		<a
-			ref='noreferrer'
-			:href='link'
-			target='_blank'
-		>
-			<b-card-img
-				:alt='title'
-				:src='image'
-			/>
+	<b-card img-top style='max-width: 20rem;' class='mb-2 bg-transparent mx-auto border-0'>
+		<a ref='noreferrer' :href='link' target='_blank'>
+			<b-card-img :alt='title' :src='image' />
 		</a>
 		<b-card-title>
-			<h3 class='animated-link' />
+			<h3 class='animated-link'>
+				{{ title }}
+			</h3>
 		</b-card-title>
 		<b-card-text>
 			<p>

@@ -63,3 +63,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+textarea {
+  color: var(--color-text) !important;
+  background-color: transparent !important;
+  border-style: none;
+  background-color: white;
+  white-space: normal;
+  text-align: justify;
+  -moz-text-align-last: center;
+  text-align-last: center;
+}

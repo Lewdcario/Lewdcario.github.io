@@ -22,15 +22,30 @@ const resetHover = () => {
 	warningVisible.value = false;
 	hidden.value = true;
 };
+
+defineProps({
+	text: {
+		type: String,
+		required: true
+	},
+	 data() {
+		return {
+			text: ''
+		};
+	}
+});
 </script>
 
 <template>
-	<div
-		class='jumpscare-warning'
-		@mouseover='startHover'
-		@mouseleave='resetHover'
-	>
-		<slot name='trigger' />
+	<div class='jumpscare-warning'>
+		 <textarea
+			@mouseover='startHover'
+			@mouseleave='resetHover'
+			readonly
+			rows='1'
+			cols='7'
+			:value='text'
+		/>
 		<slot
 			v-if='!hidden'
 			name='revealed'
@@ -49,20 +64,25 @@ const resetHover = () => {
 
 <style scoped>
 .jumpscare-warning {
-	position: relative;
-	display: block;
+  position: relative;
+}
+
+.jumpscare-warning textarea {
+	font-size: 4rem;
+	resize: none;
 }
 
 .warning-text {
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	transform: translateX(-50%);
-	opacity: 0;
-	transition: opacity 0.3s ease;
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: -1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.jumpscare-warning:hover .warning-text {
-	opacity: 1;
+.text-wrapper:hover .warning-text {
+  opacity: 1;
 }
 </style>

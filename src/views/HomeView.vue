@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useHeadSafe } from 'unhead';
-import Bio from '../components/Bio.vue';
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer.vue';
 import ProjectItemList from '../components/ProjectItemList.vue';
 
 useHeadSafe({
@@ -18,7 +19,7 @@ useHeadSafe({
 	<div class='mx-auto text-center content-center'>
 		<b-row class='mb-5'>
 			<b-col>
-				<Bio />
+				<Header />
 			</b-col>
 		</b-row>
 		<b-row class='mb-5'>
@@ -31,6 +32,11 @@ useHeadSafe({
 		<b-row>
 			<b-col>
 				<ProjectItemList />
+			</b-col>
+		</b-row>
+		<b-row class='mb-5'>
+			<b-col>
+				<Footer />
 			</b-col>
 		</b-row>
 	</div>

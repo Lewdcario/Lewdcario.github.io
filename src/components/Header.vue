@@ -1,6 +1,6 @@
 <script setup lang='ts'>
-import SocialIcon from '../components/SocialIcon.vue';
-import JumpscareWarning from '../components/JumpscareWarning.vue';
+import SocialIcon from './SocialIcon.vue';
+import JumpscareWarning from './JumpscareWarning.vue';
 </script>
 
 <template>
@@ -11,12 +11,7 @@ import JumpscareWarning from '../components/JumpscareWarning.vue';
 			alt='Avatar'
 			size='10rem'
 		/>
-		<JumpscareWarning>
-			<template #trigger>
-				<h1 class='mt-3'>
-					Okami.
-				</h1>
-			</template>
+		<JumpscareWarning text='Okami.'>
 			<template #revealed>
 				<p>She/Her</p>
 			</template>
