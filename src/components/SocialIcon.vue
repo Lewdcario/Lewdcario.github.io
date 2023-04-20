@@ -1,5 +1,5 @@
 <script lang='ts'>
-import { defineComponent } from 'vue';
+import { defineComponent } from '@vue/compat';
 import twitchLogo from './icons/TwitchIcon.vue';
 import twitterLogo from './icons/TwitterIcon.vue';
 import facebookLogo from './icons/FacebookIcon.vue';

@@ -1,13 +1,14 @@
-import { describe, it, expect } from 'vitest';
+// import items from '../../data/projects';
 
 import { mount } from '@vue/test-utils';
-import TestProjectItemList from './TestProjectItemList.vue';
+import { describe, expect, it } from 'vitest';
+import TheBio from '../Bio.vue';
 
-import items from '../../data/projects';
-
-describe('App', () => {
-	it('renders properly', () => {
-		const wrapper = mount(TestProjectItemList, { props: { items } });
-		expect(wrapper.text()).toContain('Progressive');
+describe('The Welcome', () => {
+	it('Mounts properly', async () => {
+		const wrapper = mount(TheBio);
+    
+		expect(wrapper.text()).toContain('Projects');
 	});
 });
+  
