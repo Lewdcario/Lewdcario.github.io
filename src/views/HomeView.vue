@@ -9,7 +9,15 @@ useHeadSafe({
 		lang: 'en'
 	},
 	meta: [
-		{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
+		{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
+		{
+			name: 'og:image',
+			content: '/banner.webp'
+		},
+		{
+			name: 'twitter:image',
+			content: '/banner.webp'
+		}
 	],
 	title: 'Okami\'s Portfolio'
 });
