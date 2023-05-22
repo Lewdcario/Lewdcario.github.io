@@ -1,5 +1,11 @@
 <script setup lang='ts'>
-import { ref } from '@vue/compat';
+import { ref } from 'vue';
+
+interface JumpscareWarningProps {
+	text: string;
+}
+
+const props = defineProps<JumpscareWarningProps>();
 
 const hidden = ref(true);
 const warningVisible = ref(false);
@@ -22,29 +28,17 @@ const resetHover = () => {
 	warningVisible.value = false;
 	hidden.value = true;
 };
-
-defineProps({
-	text: {
-		type: String,
-		required: true
-	},
-	 data() {
-		return {
-			text: ''
-		};
-	}
-});
 </script>
 
 <template>
 	<div class='jumpscare-warning'>
-		 <textarea
+		<textarea
 			@mouseover='startHover'
 			@mouseleave='resetHover'
 			readonly
 			rows='1'
 			cols='7'
-			:value='text'
+			:value='props.text'
 		/>
 		<slot
 			v-if='!hidden'
@@ -64,7 +58,7 @@ defineProps({
 
 <style scoped>
 .jumpscare-warning {
-  position: relative;
+	position: relative;
 }
 
 .jumpscare-warning textarea {
@@ -73,16 +67,16 @@ defineProps({
 }
 
 .warning-text {
-  position: absolute;
-  top: -1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: -1rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+	position: absolute;
+	top: -1.5rem;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-top: -1rem;
+	opacity: 0;
+	transition: opacity 0.3s ease;
 }
 
 .text-wrapper:hover .warning-text {
-  opacity: 1;
+	opacity: 1;
 }
 </style>

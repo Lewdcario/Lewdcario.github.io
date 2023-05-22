@@ -7,8 +7,7 @@ import TheBio from '../Bio.vue';
 describe('The Welcome', () => {
 	it('Mounts properly', async () => {
 		const wrapper = mount(TheBio);
-    
+
 		expect(wrapper.text()).toContain('Projects');
 	});
 });
-  

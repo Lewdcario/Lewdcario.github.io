@@ -48,16 +48,24 @@ window.addEventListener('scroll', updateZoom);
 <template>
 	<div>
 		<ul>
-			<RecycleScroller class='scroller' :items="items" :item-size="300" key-field='title'>
-				<template #default="{ item }">
-					<div :key="item.title" :class="`item ${item.visible ? 'focus' : ''}`">
+			<RecycleScroller
+				class='scroller'
+				:items='items'
+				:item-size='300'
+				key-field='title'
+			>
+				<template #default='{ item }'>
+					<div
+						:key='item.title'
+						:class='`item ${item.visible ? &apos;focus&apos; : &apos;&apos;}`'
+					>
 						<ProjectItem
-							:title="item.title"
-							:description="item.description"
-							:image="item.image"
-							:link="item.link"
-							:timeframe="item.timeframe"
-							:alt="item.alt"
+							:title='item.title'
+							:description='item.description'
+							:image='item.image'
+							:link='item.link'
+							:timeframe='item.timeframe'
+							:alt='item.alt'
 						/>
 					</div>
 				</template>
