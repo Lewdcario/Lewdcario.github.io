@@ -57,7 +57,7 @@ window.addEventListener('scroll', updateZoom);
 				<template #default='{ item }'>
 					<div
 						:key='item.title'
-						:class='`item ${item.visible ? &apos;focus&apos; : &apos;&apos;}`'
+						:class='`item ${item.visible ? "focus" : ""}`'
 					>
 						<ProjectItem
 							:title='item.title'
