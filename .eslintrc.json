@@ -41,5 +41,9 @@
 		"vue/html-quotes": ["error", "single"],
 		"quote-props": ["error", "as-needed"],
 		"vue/comma-dangle": ["error", "never"]
+	},
+	"env": {
+		"node": true,
+		"browser": true
 	}
 }

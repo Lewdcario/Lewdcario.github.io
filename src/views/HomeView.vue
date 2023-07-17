@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHeadSafe } from 'unhead';
-import Header from '../components/Header.vue';
-import Footer from '../components/Footer.vue';
+import HeaderSection from '../components/HeaderSection.vue';
+import FooterSection from '../components/FooterSection.vue';
 import ProjectItemList from '../components/ProjectItemList.vue';
 
 useHeadSafe({
@@ -27,7 +27,7 @@ useHeadSafe({
 	<div class='mx-auto text-center content-center'>
 		<b-row class='mb-5'>
 			<b-col>
-				<Header />
+				<HeaderSection />
 			</b-col>
 		</b-row>
 		<b-row class='mb-5'>
@@ -44,7 +44,7 @@ useHeadSafe({
 		</b-row>
 		<b-row class='mb-5'>
 			<b-col>
-				<Footer />
+				<FooterSection />
 			</b-col>
 		</b-row>
 	</div>

@@ -1,11 +1,5 @@
-<script setup lang='ts'>
-import { ref } from 'vue';
-
-interface JumpscareWarningProps {
-	text: string;
-}
-
-const props = defineProps<JumpscareWarningProps>();
+<script lang='ts'>
+import { defineComponent, ref } from 'vue';
 
 const hidden = ref(true);
 const warningVisible = ref(false);
@@ -28,6 +22,23 @@ const resetHover = () => {
 	warningVisible.value = false;
 	hidden.value = true;
 };
+
+export default defineComponent({
+	props: {
+		text: {
+			type: String,
+			required: true
+		}
+	},
+	setup() {
+		return {
+			hidden,
+			warningVisible,
+			startHover,
+			resetHover
+		};
+	}
+});
 </script>
 
 <template>
@@ -38,7 +49,7 @@ const resetHover = () => {
 			readonly
 			rows='1'
 			cols='7'
-			:value='props.text'
+			:value='$props.text'
 		/>
 		<slot
 			v-if='!hidden'

@@ -1,14 +1,14 @@
 <script setup lang='ts'>
-import Sky from './components/Sky.vue';
+import SkyCanvas from './components/SkyCanvas.vue';
 </script>
 
 <template>
-	<Sky>
+	<SkyCanvas>
 		<b-container
 			fluid
 			class='p-5'
 		>
 			<RouterView />
 		</b-container>
-	</Sky>
+	</SkyCanvas>
 </template>
