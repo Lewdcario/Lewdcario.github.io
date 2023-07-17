@@ -38,8 +38,16 @@ export default defineComponent({
 
 <template>
 	<span class='d-inline-block'>
-		<a :href='link' target='_blank' rel='noreferrer' class="m-5">
-			<component :is="logo" class='img-responsive text-light'/>
+		<a
+			:href='link'
+			target='_blank'
+			rel='noreferrer'
+			class='m-5'
+		>
+			<component
+				:is='logo'
+				class='img-responsive text-light'
+			/>
 		</a>
 		<h4 class='animated-link half-highlight mt-2'>
 			{{ title }}
