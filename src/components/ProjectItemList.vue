@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 import { RecycleScroller } from 'vue-virtual-scroller';
 import ProjectItem from './ProjectItem.vue';
 import items from '../data/projects';
@@ -18,7 +18,11 @@ export default {
 	},
 	computed: {
 		itemsWithIndex() {
-			return this.items.map((item, index) => ({ ...item, index, visible: false }));
+			return this.items.map((item, index) => ({
+				...item,
+				index,
+				visible: false
+			}));
 		}
 	}
 };
@@ -42,7 +46,6 @@ function updateZoom() {
 }
 
 window.addEventListener('scroll', updateZoom);
-
 </script>
 
 <template>
@@ -51,13 +54,13 @@ window.addEventListener('scroll', updateZoom);
 			<RecycleScroller
 				class='scroller'
 				:items='items'
-				:item-size='300'
+				:item-size='350'
 				key-field='title'
 			>
 				<template #default='{ item }'>
 					<div
 						:key='item.title'
-						:class='`item ${item.visible ? "focus" : ""}`'
+						:class='`item ${item.visible ? &apos;focus&apos; : &apos;&apos;}`'
 					>
 						<ProjectItem
 							:title='item.title'
@@ -76,11 +79,11 @@ window.addEventListener('scroll', updateZoom);
 
 <style scoped>
 .item {
-  transition: all 0.2s;
-  transform: scale(1);
+	transition: all 0.2s;
+	transform: scale(1);
 }
 
 .item:hover {
-  transform: scale(1.1);
+	transform: scale(1.1);
 }
 </style>
