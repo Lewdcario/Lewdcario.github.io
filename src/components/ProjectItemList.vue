@@ -33,7 +33,7 @@ const center = window.innerHeight / 2;
 const list = Array.from(document.querySelectorAll('.item'));
 
 function updateZoom() {
-	list.forEach((item: HTMLElement) => {
+	list.forEach((item) => {
 		const rect = item.getBoundingClientRect();
 		const isCenter = rect.top < center && rect.bottom > center;
 		if (isCenter) {
