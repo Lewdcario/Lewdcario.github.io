@@ -1,4 +1,6 @@
 <script lang="ts">
+/* eslint-disable */
+
 import { RecycleScroller } from 'vue-virtual-scroller';
 import ProjectItem from './ProjectItem.vue';
 import items from '../data/projects';
@@ -37,8 +39,7 @@ function updateZoom() {
 		if (isCenter) {
 			item.classList.add('zoom');
 			item.style.boxShadow = '0px 0px 20px 5px rgba(255, 255, 255, 0.5)';
-		}
-		else {
+		} else {
 			item.classList.remove('zoom');
 			item.style.boxShadow = '';
 		}
@@ -52,30 +53,26 @@ window.addEventListener('scroll', updateZoom);
 	<div>
 		<ul>
 			<RecycleScroller
-				class='scroller'
-				:items='items'
-				:item-size='350'
-				key-field='title'
+				class="scroller"
+				:items="items"
+				:item-size="350"
+				key-field="title"
 			>
-				{/* eslint-disable */ }
-				<template #default='{ item }'>
-					{/* prettier-ignore */} {
+				<template #default="{ item }">
 					<div
-						:key='item.title'
-						:class='`item ${item.visible ? &apos;focus&apos; : &apos;&apos;}`'
+						:key="item.title"
+						:class="`item ${item.visible ? 'focus' : ''}`"
 					>
 						<ProjectItem
-							:title='item.title'
-							:description='item.description'
-							:image='item.image'
-							:link='item.link'
-							:timeframe='item.timeframe'
-							:alt='item.alt'
+							:title="item.title"
+							:description="item.description"
+							:image="item.image"
+							:link="item.link"
+							:timeframe="item.timeframe"
+							:alt="item.alt"
 						/>
 					</div>
-					}
 				</template>
-				{/* eslint-enable */ }
 			</RecycleScroller>
 		</ul>
 	</div>
