@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -34,18 +34,11 @@ export default defineComponent({
 <template>
 	<b-card
 		img-top
-		style='max-width: 20rem;'
+		style='max-width: 20rem'
 		class='mb-2 bg-transparent mx-auto border-0'
 	>
-		<a
-			ref='noreferrer'
-			:href='link'
-			target='_blank'
-		>
-			<b-card-img
-				:alt='title'
-				:src='image'
-			/>
+		<a ref='noreferrer' :href='link' target='_blank'>
+			<b-card-img :alt='title' :src='image' />
 		</a>
 		<b-card-title>
 			<h3 class='animated-link'>

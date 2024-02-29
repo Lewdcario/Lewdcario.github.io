@@ -58,6 +58,7 @@ window.addEventListener('scroll', updateZoom);
 				key-field='title'
 			>
 				<template #default='{ item }'>
+					{/* prettier-ignore eslint-disable-next-line */}
 					<div
 						:key='item.title'
 						:class='`item ${item.visible ? &apos;focus&apos; : &apos;&apos;}`'

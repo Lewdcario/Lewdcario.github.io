@@ -5,13 +5,13 @@
 	</div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 export default {
 	mounted() {
 		const canvas = this.$refs.canvas as any;
 		const context = canvas.getContext('2d');
-		let width = canvas.width = window.innerWidth;
-		let height = canvas.height = window.innerHeight;
+		let width = (canvas.width = window.innerWidth);
+		let height = (canvas.height = window.innerHeight);
 		const stars: any[] = [];
 		const maxStars = 100;
 
@@ -83,4 +83,3 @@ canvas {
 	z-index: -1;
 }
 </style>
-

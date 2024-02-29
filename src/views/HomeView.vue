@@ -32,9 +32,7 @@ useHeadSafe({
 		</b-row>
 		<b-row class='mb-5'>
 			<b-col>
-				<h1>
-					Projects
-				</h1>
+				<h1>Projects</h1>
 			</b-col>
 		</b-row>
 		<b-row>
