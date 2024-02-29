@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent, ref } from 'vue';
 
 const hidden = ref(true);
@@ -44,17 +44,14 @@ export default defineComponent({
 <template>
 	<div class='jumpscare-warning'>
 		<textarea
-			@mouseover='startHover'
-			@mouseleave='resetHover'
 			readonly
 			rows='1'
 			cols='7'
 			:value='$props.text'
+			@mouseover='startHover'
+			@mouseleave='resetHover'
 		/>
-		<slot
-			v-if='!hidden'
-			name='revealed'
-		/>
+		<slot v-if='!hidden' name='revealed' />
 		<b-alert
 			v-show='warningVisible'
 			class='warning-text opacity-75'

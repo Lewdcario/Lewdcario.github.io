@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent } from 'vue';
 import twitchLogo from './icons/TwitchIcon.vue';
 import twitterLogo from './icons/TwitterIcon.vue';
@@ -38,16 +38,8 @@ export default defineComponent({
 
 <template>
 	<span class='d-inline-block'>
-		<a
-			:href='link'
-			target='_blank'
-			rel='noreferrer'
-			class='m-5'
-		>
-			<component
-				:is='logo'
-				class='img-responsive text-light'
-			/>
+		<a :href='link' target='_blank' rel='noreferrer' class='m-5'>
+			<component :is='logo' class='img-responsive text-light' />
 		</a>
 		<h4 class='animated-link half-highlight mt-2'>
 			{{ title }}

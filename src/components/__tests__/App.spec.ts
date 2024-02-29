@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 import TheBio from '../Bio.vue';
 
 describe('The Welcome', () => {
-	it('Mounts properly', async () => {
+	it('Mounts properly', () => {
 		const wrapper = mount(TheBio);
 
 		expect(wrapper.text()).toContain('Projects');
