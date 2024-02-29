@@ -30,7 +30,9 @@ export default {
 };
 
 const center = window.innerHeight / 2;
-const list = Array.from(document.querySelectorAll('.item'));
+const list = Array.from(
+	document.querySelectorAll('.item')
+) as any as HTMLElement[];
 
 function updateZoom() {
 	list.forEach((item) => {
