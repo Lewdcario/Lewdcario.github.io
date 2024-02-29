@@ -57,8 +57,9 @@ window.addEventListener('scroll', updateZoom);
 				:item-size='350'
 				key-field='title'
 			>
+				{/* eslint-disable */ }
 				<template #default='{ item }'>
-					{/* eslint-disable */ } {/* prettier-ignore */}
+					{/* prettier-ignore */} {
 					<div
 						:key='item.title'
 						:class='`item ${item.visible ? &apos;focus&apos; : &apos;&apos;}`'
@@ -72,8 +73,9 @@ window.addEventListener('scroll', updateZoom);
 							:alt='item.alt'
 						/>
 					</div>
-					{/* eslint-enable */ }
+					}
 				</template>
+				{/* eslint-enable */ }
 			</RecycleScroller>
 		</ul>
 	</div>
