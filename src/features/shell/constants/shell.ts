@@ -19,7 +19,7 @@ export const vlcDefaultPlaylistId = 'RDPRGV4FEQFf4';
 export const vlcDefaultPlaylistUrl = `https://www.youtube.com/playlist?list=${vlcDefaultPlaylistId}`;
 
 export const guestLoginPasswordSeed = 'cobalt_2002';
-export const mainWindowTitle = 'okami@workstation:~/control-room [92bdb4b7]';
+export const mainWindowTitle = 'okami@workstation:~/control-room [7202fe4f]';
 export const standardBrowserName = 'Netscape Navigator';
 export const browserPlaceholderPrompt = 'Enter a website and press Go.';
 export const desktopReadyStatus = 'workspace ready.';
@@ -60,8 +60,6 @@ export const shellIcons = {
 	briefcase: '/xp-icons/pack/briefcase.png',
 	freePalestine: '/xp-icons/pack/free-palestine.png',
 	constellations: 'https://app.neburose.com/icons/icon-192.png',
-	didAwareness:
-		'https://bettysgraphics.neocities.org/images/web%20graphics/icons/treasure%202.gif',
 	neburoseHome: 'https://www.neburose.com/constellations-icon.png',
 	browser: '/xp-icons/pack/browser.png',
 	chrome: '/xp-icons/pack/chrome.png',
@@ -192,7 +190,6 @@ export const linkGroups: LinkGroup[] = [
 	{
 		title: 'Web Projects',
 		links: [
-			{ label: 'DID-Awareness', href: 'https://did-help.today' },
 			{
 				label: 'Constellations',
 				href: 'https://app.neburose.com'
@@ -275,14 +272,6 @@ const allDesktopIcons: DesktopIcon[] = [
 		href: 'https://neburose.com/',
 		x: 418,
 		y: 48
-	},
-	{
-		id: 'did-awareness',
-		label: 'DID Resources',
-		icon: shellIcons.didAwareness,
-		href: 'https://did-help.today/',
-		x: 418,
-		y: 156
 	},
 	{
 		id: 'tor-browser',
